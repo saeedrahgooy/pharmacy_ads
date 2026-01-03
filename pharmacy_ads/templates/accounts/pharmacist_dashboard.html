@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block title %}داشبورد داروساز{% endblock %}
+{% block content %}
+<h2>داشبورد داروساز</h2>
+
+<h3>لیست آگهی‌ها</h3>
+<ul>
+  {% for ad in ads %}
+    <li>
+      {{ ad.title }} - {{ ad.city }}
+      <a href="{% url 'ads:detail' ad.id %}" class="btn">مشاهده</a>
+      <a href="{% url 'requests:create' ad.id %}" class="btn btn-primary">درخواست همکاری</a>
+    </li>
+  {% empty %}
+    <li>آگهی‌ای موجود نیست.</li>
+  {% endfor %}
+</ul>
+
+<h3>درخواست‌های من</h3>
+<ul>
+  {% for req in my_requests %}
+    <li>{{ req.ad.title }} → {{ req.status }}</li>
+  {% empty %}
+    <li>درخواستی ارسال نکرده‌اید.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

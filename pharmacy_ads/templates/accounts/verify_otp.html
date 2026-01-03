@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block title %}تایید کد{% endblock %}
+{% block content %}
+<h2>تایید کد</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="outlined-field">
+    <input type="text" name="code" maxlength="6" required>
+    <label>کد ۶ رقمی</label>
+  </div>
+
+  <button class="btn btn-primary">تایید</button>
+</form>
+{% endblock %}

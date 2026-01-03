@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}صفحه{% endblock %}</title>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- آیکون‌ها -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- استایل سفارشی -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+      <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!--  <link rel="stylesheet" href="{% static 'css/form-outlined.css' %}">-->
+</head>
+<body>
+
+{% include 'base/_navbar.html' %}
+<main class="container">
+    {% include 'base/_messages.html' %}
+    {% block content %}{% endblock %}
+</main>
+<!-- Materialize JS (only once in base) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

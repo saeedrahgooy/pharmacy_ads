@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block title %}انتخاب نقش{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <div class="card z-depth-2">
+      <div class="card-content">
+
+        <span class="card-title center">انتخاب نقش</span>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <!-- انتخاب نقش با Materialize -->
+          <div class="input-field">
+            <select name="role" required>
+              <option value="" disabled selected>نقش خود را انتخاب کنید</option>
+              <option value="owner">داروخانه‌دار</option>
+              <option value="pharmacist">داروساز</option>
+              <option value="admin">مدیر سیستم</option>
+            </select>
+            <label>نقش</label>
+          </div>
+
+          <div class="center" style="margin-top: 20px;">
+            <button class="btn waves-effect waves-light blue" type="submit">
+              ادامه
+              <i class="material-icons right">arrow_forward</i>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- فعال‌سازی select در Materialize -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+  });
+</script>
+
+{% endblock %}

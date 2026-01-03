@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block title %}{{ ad.title }}{% endblock %}
+
+{% block content %}
+<h4>{{ ad.title }}</h4>
+<p>{{ ad.description }}</p>
+<p>شهر: {{ ad.city }}</p>
+<p>استان: {{ ad.province }}</p>
+<p>نوع فعالیت: {{ ad.get_activity_type_display }}</p>
+{% endblock %}

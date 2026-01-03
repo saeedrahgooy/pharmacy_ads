@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block title %}داشبورد ادمین{% endblock %}
+{% block content %}
+<h2>داشبورد ادمین سایت</h2>
+
+<h3>مدیریت کاربران</h3>
+<ul>
+  {% for user in users %}
+    <li>{{ user.phone }} - {{ user.get_role_display }}</li>
+  {% endfor %}
+</ul>
+
+<h3>مدیریت آگهی‌ها</h3>
+<ul>
+  {% for ad in ads %}
+    <li>{{ ad.title }} - {{ ad.owner.phone }}</li>
+  {% endfor %}
+</ul>
+
+<h3>گزارش‌ها و آمار</h3>
+<div class="outlined-field">
+  <p>تعداد کل کاربران: {{ stats.users }}</p>
+  <p>تعداد کل آگهی‌ها: {{ stats.ads }}</p>
+  <p>تعداد کل درخواست‌ها: {{ stats.requests }}</p>
+</div>
+{% endblock %}
