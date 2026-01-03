@@ -14,3 +14,4 @@ def ads_detail(request, id):
     ad = get_object_or_404(Ad, id=id)
     return render(request, "ads/ads_detail.html", {"ad": ad})
 
+
